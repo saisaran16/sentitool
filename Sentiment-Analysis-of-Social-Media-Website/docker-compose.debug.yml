@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  sentimentanalysisofsocialmediawebsite:
+    image: sentimentanalysisofsocialmediawebsite
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:80 app.py "]
+    ports:
+      - 80:80
